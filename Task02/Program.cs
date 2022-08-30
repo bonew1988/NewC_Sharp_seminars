@@ -1,7 +1,7 @@
 ﻿//день недели по номеру дня
 
 Console.Clear();
-Console.Write("Ведите число: ");
+Console.Write("Ведите число от 1 до 7: ");
 int num1 = Convert.ToInt32(Console.ReadLine());
 if(num1 < 8 && num1 > 0)
 {
