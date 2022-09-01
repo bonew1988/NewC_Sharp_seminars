@@ -19,7 +19,7 @@ if (num1 > num2)
     min = num2;
 }
 else max = num2;
-    min = num1;
+min = num1;
 
 Console.WriteLine("-----------------");
 Console.WriteLine($"Максимальное значение: {max}");
