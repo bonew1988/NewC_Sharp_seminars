@@ -14,15 +14,7 @@ int count = 2;
 int parity = 2;
 while (count <= num1)
 {
-    if (num1 % 2 == 0)
-    {
-        Console.Write($"{count} ");
-        count = count + parity;
-    }
-    else
-    {
-        Console.Write($"{count} ");
-        count = count + parity;
-    }
+    Console.Write($"{count} ");
+    count = count + parity;
 }
 Console.WriteLine();
