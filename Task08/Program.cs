@@ -5,6 +5,7 @@
 // 46 -> нет
 // 161 -> да
 
+Console.Clear();
 Console.WriteLine("Введите число");
 int a = Convert.ToInt32(Console.ReadLine());
 
