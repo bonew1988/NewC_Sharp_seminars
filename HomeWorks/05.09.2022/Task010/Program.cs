@@ -7,13 +7,24 @@
 Console.Clear();
 Console.WriteLine("Автор: Новиков ВВ");
 Console.WriteLine("-----------------");
+Console.WriteLine();
 Console.Write("Введите трехзначное число: ");
-int num1 = Convert.ToInt32(Console.ReadLine());
+int number = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine();
 Console.WriteLine("-----------------");
 
-if (num1 > 99 && num1 < 1000)
+int Module(int num)
 {
-    Console.WriteLine($"{num1 / 10 % 10}");
+    if (num < 0)
+    {
+        return -num;
+    }
+    else return num;
 }
-else Console.WriteLine($"Вы ввели невеное число");
+int result = Module(number);
+if (result > 99 && result < 1000)
+{
+    result = result / 10 % 10;
+    Console.WriteLine($"{result}");
+}
+else Console.WriteLine($"Вы ввели неверное число");

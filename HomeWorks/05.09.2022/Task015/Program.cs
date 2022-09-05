@@ -10,6 +10,8 @@ Console.WriteLine("Автор: Новиков ВВ");
 Console.WriteLine("-----------------");
 Console.Write("Введите номер дня недели: ");
 int num = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+Console.WriteLine("-----------------");
 
 bool Weekend(int num1)
 {
