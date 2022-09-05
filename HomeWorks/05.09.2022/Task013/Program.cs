@@ -57,4 +57,5 @@ else Console.WriteLine($"плохо");
 //     num2 = num1 / count1;
 //     count1 = count1 * depth;
 // }
-// Console.WriteLine(num2 % 10);
+// num2 = num2 % 10;
+// Console.WriteLine($"{num2}");
