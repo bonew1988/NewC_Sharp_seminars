@@ -11,21 +11,14 @@ Console.WriteLine("-----------------");
 Console.Write("Введите номер дня недели: ");
 int num = Convert.ToInt32(Console.ReadLine());
 
-bool weekend(int num1)
+bool Weekend(int num1)
 {
-    return ();
+    return (num1 >= 6);
 }
-
-bool result = square(a, b);
-
-
-
-
-
-
-
-// if (num => 6)
-// {
-//     Console.WriteLine($"Выходной день");
-// }
-// else Console.WriteLine($"Будний день");
+if (num <= 7 && num >= 1)
+{
+    bool result = Weekend(num);
+    if (result) Console.WriteLine($"Выходной");
+    else Console.WriteLine($"Будний");
+}
+else Console.WriteLine($"Введите корректный номер дня недели");
