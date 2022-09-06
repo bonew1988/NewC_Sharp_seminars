@@ -7,12 +7,12 @@
 //-------------------------------------------------------------
 
 Console.Clear();
-Console.WriteLine("Введите координаты точки A ");
+Console.WriteLine("Введите координаты точки A: ");
 Console.Write("x:");
 double ax = Convert.ToDouble(Console.ReadLine());
 Console.Write("y:");
 double ay = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("Введите координаты точки B ");
+Console.WriteLine("Введите координаты точки B: ");
 Console.Write("x:");
 double bx = Convert.ToDouble(Console.ReadLine());
 Console.Write("y:");
@@ -23,4 +23,4 @@ double Result(double ax1, double ay1, double bx1, double by1)
     return Math.Sqrt((ax1 - bx1) * (ax1 - bx1) + (ay1 - by1) * (ay1 - by1));
 }
 double result = Result(ax, ay, bx, by);
-Console.WriteLine(Math.Round(result, 2));
+Console.WriteLine($"Расстояние между точками составит: {Math.Round(result, 2, MidpointRounding.ToZero)}");
