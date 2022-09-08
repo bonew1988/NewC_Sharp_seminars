@@ -3,21 +3,22 @@
 // 3 -> 1, 8, 27
 // 5 -> 1, 8, 27, 64, 125
 //-------------------------------------------------------
+
 Console.Clear();
+Console.WriteLine("Таблица кубов натуральных чисел");
+Console.WriteLine("-------------");
 Console.Write("Введите положительное целое число: ");
 int digit = Convert.ToInt32(Console.ReadLine());
-int count = 1;
-void Cube(int digit1, int count1)
+void Cube(int digit1)
 {
-    while (count1 <= digit1)
+    if(digit1>=1)
     {
-        Console.WriteLine($"{count1} --> {count1 * count1 * count1,5}");
-        count1++;
+        for (int i = 1; i <= digit1; i++)
+        {
+            Console.WriteLine($"{i} --> {i * i * i,4}");
+        }
     }
+    else Console.WriteLine($"Введено некорректное число");
 }
 Console.WriteLine();
-if (digit >= 1)
-{
-    Cube(digit, count);
-}
-else Console.WriteLine($"Введено некорректное число");
+Cube(digit);

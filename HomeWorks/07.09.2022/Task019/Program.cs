@@ -6,8 +6,8 @@
 //-------------------------------------------------------------
 
 Console.Clear();
-Console.WriteLine("Автор: Новиков ВВ");
-Console.WriteLine("-----------------");
+Console.WriteLine("Проверка пятизначного числа на палиндром");
+Console.WriteLine("----------------------------------------");
 Console.WriteLine();
 Console.Write("Введите пятизначное число: ");
 int number = Convert.ToInt32(Console.ReadLine());
