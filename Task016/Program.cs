@@ -10,6 +10,8 @@ double number = Convert.ToDouble(Console.ReadLine());
 
 double Multiplication(double num)
 {
+if(num!=0)
+{
     double mult = 1;
     for (int i = 1; i <= num; i++)
     {
@@ -17,5 +19,8 @@ double Multiplication(double num)
     }
     return mult;
 }
+return 0;
+}
 double result = Multiplication(number);
-Console.WriteLine($"Произведение чисел от 1 до {number} составит {result}");
+Console.WriteLine("--------------------------");
+Console.WriteLine($"{result}");
