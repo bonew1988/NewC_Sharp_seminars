@@ -2,28 +2,30 @@
 // выводит массив из 8 элементов, заполненный
 // нулями и единицами в случайном порядке.
 // [1,0,1,1,0,1,0,0]
+
 Console.Clear();
 int[] arr = new int[8];
 
-void ArrEight(int[] arr1)
+void FillArray(int[] array)
 {
-    for (int i = 0; i < arr.Length; i++)
+    int count = array.Length;
+    Random rnd = new Random();
+    for (int i = 0; i < count; i++)
     {
-        arr1[i] = new Random().Next(0, 2);
+        array[i] = rnd.Next(0, 2);
     }
 }
-void PrintArray(int[] arr1)
-{
-    Console.Write("[");
-    for (int i = 0; i < arr.Length; i++)
-    {
-        if (i < arr.Length - 1)
-            Console.Write($"{arr1[i]},");
-        else
-            Console.Write($"{arr1[i]}");
-    }
 
-    Console.WriteLine("]");
+void PrintArray(int[] array)
+{
+    int count = array.Length;
+    for (int i = 0; i < count; i++)
+    {
+        if (i == 0) Console.Write("[");
+        if (i == count - 1) Console.WriteLine($"{array[i]}]");
+        else Console.Write($"{array[i]}, ");
+    }
 }
-ArrEight(arr);
+
+FillArray(arr);
 PrintArray(arr);
