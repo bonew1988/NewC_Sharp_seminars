@@ -2,6 +2,7 @@
 // определяет, присутствует ли заданное число в массиве.
 // 4; массив [6, 7, 19, 345, 3] -> нет
 // 3; массив [6, 7, 19, 345, 3] -> да
+//----------------------------------------------------------------
 
 Console.Clear();
 Console.WriteLine();
@@ -19,9 +20,9 @@ int[] CreateArrayRndInt(int size, int min, int max)
 void PrintArray(int[] array)
 {
     Console.Write("[");
-    for (int i = 0; i < array.LongLength; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        if (i < array.LongLength - 1) Console.Write($"{array[i]}, ");
+        if (i < array.Length - 1) Console.Write($"{array[i]}, ");
         else Console.Write($"{array[i]}");
     }
     Console.Write("]");
@@ -40,10 +41,10 @@ bool ArraySearch(int[] array, int search1)
     }
     return exist;
 }
-int[] arr = CreateArrayRndInt(4, -10, 10);
+int[] arr = CreateArrayRndInt(16, -1000, 1000);
 PrintArray(arr);
 Console.WriteLine();
-Console.WriteLine("Введите число для поиска в массиве: ");
+Console.WriteLine("Enter a number to search in the array: ");
 int search = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine();
 bool result = ArraySearch(arr, search);

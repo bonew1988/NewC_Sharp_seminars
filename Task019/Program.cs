@@ -2,7 +2,7 @@
 // массива: положительные элементы замените на
 // соответствующие отрицательные, и наоборот.
 // [-4, -8, 8, 2] -> [4, 8, -8, -2]
-
+//------------------------------------------------
 Console.Clear();
 Console.WriteLine();
 
@@ -19,9 +19,9 @@ int[] CreateArrayRndInt(int size, int min, int max)
 void PrintArray(int[] array)
 {
     Console.Write("[");
-    for (int i = 0; i < array.LongLength; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        if (i < array.LongLength - 1) Console.Write($"{array[i]}, ");
+        if (i < array.Length - 1) Console.Write($"{array[i]}, ");
         else Console.Write($"{array[i]}");
     }
     Console.Write("]");
@@ -34,7 +34,7 @@ int[] Inverse(int[] array)
     }
     return array;
 }
-int[] arr = CreateArrayRndInt(4, -10, 10);
+int[] arr = CreateArrayRndInt(10, -100, 100);
 PrintArray(arr);
 Console.WriteLine();
 int[] result = Inverse(arr);
