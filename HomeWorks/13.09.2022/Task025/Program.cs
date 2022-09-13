@@ -10,7 +10,6 @@ Console.Write("Введите натуральную степень, в кото
 int numB = Convert.ToInt32(Console.ReadLine());
 int count = 1;
 double numC = 1;
-int numM = 0;
 double Exponentiation(double num1, int num2, int i, double num3)
 {
     i = 1;
@@ -28,8 +27,7 @@ if (numB < 0)
     Console.WriteLine($"Вы ввели отрицательное число, данный алгоритм предназначен для нахождения только натуральной степени, возможно, Вы имели ввиду {-numB}");
     Console.WriteLine($"-------------------------------------------------------------------------------------------------------------------------------");
 
-    numM = -numB;
+    numB = -numB;
 }
-else numM = numB;
-double result = Exponentiation(numA, numM, count, numC);
-Console.WriteLine($"{numA} в степени {numM} составит: {result}");
+double result = Exponentiation(numA, numB, count, numC);
+Console.WriteLine($"{numA} в степени {numB} составит: {result}");
