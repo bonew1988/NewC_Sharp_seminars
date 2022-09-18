@@ -26,8 +26,8 @@ void PrintArray(double[] array)
 }
 double[] CalcIntersectionPoint(double b11, double k11, double b22, double k22)
 {
-    double x = (b22 - b11) / (k11 - k22);
-    double y = k11 * (b22 - b11) / (k11 - k22) + b11;
+    double x = Math.Round((b22 - b11) / (k11 - k22), 2);
+    double y = Math.Round(k11 * (b22 - b11) / (k11 - k22) + b11, 2);
     double[] array = new double[2];
     array[0] = x;
     array[1] = y;
