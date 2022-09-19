@@ -3,7 +3,7 @@
 // 1, -7, 567, 89, 223-> 3
 //---------------------------------------------------------------
 Console.Clear();
-Console.WriteLine("Подсчет элементов массива, больших 0");
+Console.WriteLine("Подсчет элементов массива, больших нуля");
 Console.WriteLine("************************************");
 int[] CreateArrayManualInt(int size)
 {
@@ -44,4 +44,4 @@ Console.WriteLine("Получен массив:");
 PrintArray(arr);
 Console.WriteLine();
 Console.WriteLine("************************************");
-Console.WriteLine($"Количество чисел, больших 0: {CountPosNumbersArray(arr)}");
+Console.WriteLine($"Количество чисел, больших нуля: {CountPosNumbersArray(arr)}");
