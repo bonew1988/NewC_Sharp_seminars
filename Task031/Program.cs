@@ -2,51 +2,63 @@
 // элементов, находящихся на главной диагонали (с индексами
 // (0,0); (1;1) и т.д.
 
-int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
+int[,] CreateMatrixRndInt(int rows, int columns)
 {
-    int[,] matrix = new int[rows, columns];
+    int[,] matrix = new int[rows, columns]; //0, 1, 2
+
     Random rnd = new Random();
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            matrix[i, j] = rnd.Next(min, max + 1);
+            matrix[i, j] = i + j;
         }
-
     }
     return matrix;
 }
+
 void PrintMatrix(int[,] matrix)
 {
-
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         Console.Write("|");
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            if (j < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j],2}| ");
-            else Console.Write($"{matrix[i, j],2}");
+            if (j < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j],5}, ");
+            else Console.Write($"{matrix[i, j],5} ");
         }
         Console.WriteLine("|");
     }
 }
-int ChangeMatrixRndInt(int[,] array)
+int DiagonalSumMatrix(int[,] matrix)
 {
-    int sum = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
+    int diagnalSumMatrix = default;
+    int oversize = 0;
+    if (matrix.GetLength(0) > matrix.GetLength(1)) oversize = 1;
+    for (int i = 0; i < matrix.GetLength(oversize); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if (i == j) sum += array[i, j];
-        }
+
+        diagnalSumMatrix += matrix[i, i];
+
     }
-    return sum;
+    return diagnalSumMatrix;
 }
 
-Console.Clear();
-int[,] array2D = CreateMatrixRndInt(5, 7, 1, 9);
-Console.WriteLine("***************************");
-PrintMatrix(array2D);
-Console.WriteLine("***************************");
-int newsum = ChangeMatrixRndInt(array2D);
-Console.WriteLine($"{ChangeMatrixRndInt(array2D)}");
+bool restart = true;
+while (restart)
+{
+    Console.Clear();
+
+    Random randomizer = new Random();
+    int randomRows = randomizer.Next(2, 6),
+        randomColumns = randomizer.Next(2, 6);
+
+    int[,] array2D = CreateMatrixRndInt(randomRows, randomColumns);
+    PrintMatrix(array2D);
+    Console.WriteLine("-------------------------------------------------------------");
+    int result = DiagonalSumMatrix(array2D);
+    Console.WriteLine($"Сумма элементов главной диагонали = {result}");
+
+    Console.Write("Ещё раз? \n'Enter' - Да. Что-то другое - Выход.");
+    restart = Console.ReadKey().Key == ConsoleKey.Enter;
+}
