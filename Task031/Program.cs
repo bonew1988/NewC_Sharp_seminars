@@ -1,9 +1,6 @@
-﻿// Задача 46: Задайте двумерный массив размером m×n,
-// заполненный случайными целыми числами.
-// m = 3, n = 4.
-// 1 4 8 19
-// 5 -2 33 -2
-// 77 3 8 1
+﻿// Задача 51: Задайте двумерный массив. Найдите сумму
+// элементов, находящихся на главной диагонали (с индексами
+// (0,0); (1;1) и т.д.
 
 int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
 {
@@ -33,6 +30,22 @@ void PrintMatrix(int[,] matrix)
         Console.WriteLine("|");
     }
 }
+int ChangeMatrixRndInt(int[,] array)
+{
+    int sum = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (i == j) sum += array[i, i];
+        }
+    }
+    return sum;
+}
 
-int[,] array2D = CreateMatrixRndInt(5, 7, -999, 999);
+Console.Clear();
+int[,] array2D = CreateMatrixRndInt(3, 4, 1, 15);
 PrintMatrix(array2D);
+Console.WriteLine("***************************");
+int newsum = ChangeMatrixRndInt(array2D);
+Console.WriteLine($"{ChangeMatrixRndInt(array2D)}");

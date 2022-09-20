@@ -1,9 +1,6 @@
-﻿// Задача 46: Задайте двумерный массив размером m×n,
-// заполненный случайными целыми числами.
-// m = 3, n = 4.
-// 1 4 8 19
-// 5 -2 33 -2
-// 77 3 8 1
+﻿// Задача 49: Задайте двумерный массив. Найдите элементы, у
+// которых оба индекса чётные, и замените эти элементы на их
+// квадраты.
 
 int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
 {
@@ -33,6 +30,21 @@ void PrintMatrix(int[,] matrix)
         Console.WriteLine("|");
     }
 }
+int[,] ChangeMatrixRndInt(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i += 2)
+    {
+        for (int j = 0; j < array.GetLength(1); j += 2)
+        {
+            array[i, j] *= array[i, j];
+        }
+    }
+    return array;
+}
 
-int[,] array2D = CreateMatrixRndInt(5, 7, -999, 999);
+Console.Clear();
+int[,] array2D = CreateMatrixRndInt(3, 4, 5, 10);
 PrintMatrix(array2D);
+Console.WriteLine("***************************");
+int[,] newarray = ChangeMatrixRndInt(array2D);
+PrintMatrix(newarray);
