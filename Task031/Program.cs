@@ -24,8 +24,8 @@ void PrintMatrix(int[,] matrix)
         Console.Write("|");
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            if (j < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j],5}| ");
-            else Console.Write($"{matrix[i, j],5}");
+            if (j < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j],2}| ");
+            else Console.Write($"{matrix[i, j],2}");
         }
         Console.WriteLine("|");
     }
@@ -37,14 +37,15 @@ int ChangeMatrixRndInt(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            if (i == j) sum += array[i, i];
+            if (i == j) sum += array[i, j];
         }
     }
     return sum;
 }
 
 Console.Clear();
-int[,] array2D = CreateMatrixRndInt(3, 4, 1, 15);
+int[,] array2D = CreateMatrixRndInt(5, 7, 1, 9);
+Console.WriteLine("***************************");
 PrintMatrix(array2D);
 Console.WriteLine("***************************");
 int newsum = ChangeMatrixRndInt(array2D);
