@@ -33,16 +33,18 @@ void PrintMatrix(int[,] matrix)
 }
 void SearchArrayElement(int[,] matrix, int k, int l)
 {
-    int result = default;
     if (k > matrix.GetLength(0) || l > matrix.GetLength(1))
         Console.WriteLine("такого числа в массиве нет");
     else
-        Console.WriteLine($"Искомое значение: {result = matrix[k - 1, l - 1]}");
+        Console.WriteLine($"Искомое значение: {matrix.GetValue(k - 1, l - 1)}");
 }
 Console.Clear();
+Random rand = new Random();
+int randRows = rand.Next(3, 7),
+    randColumns = rand.Next(3, 7);
 Console.WriteLine("Поиск значения двумерного массива по позициям элемента.");
 Console.WriteLine("*******************************************************");
-int[,] array2D = CreateMatrixRndInt(7, 9, -10, 10);
+int[,] array2D = CreateMatrixRndInt(randRows, randColumns, -10, 10);
 PrintMatrix(array2D);
 Console.WriteLine("*******************************************************");
 Console.Write("Введите номер строки: ");
@@ -50,4 +52,3 @@ int i = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите номер столбца: ");
 int j = Convert.ToInt32(Console.ReadLine());
 SearchArrayElement(array2D, i, j);
-Console.WriteLine($"{array2D.GetValue(i,j)}");
