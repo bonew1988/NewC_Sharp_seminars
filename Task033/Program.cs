@@ -33,8 +33,7 @@ void PrintMatrix(int[,] matrix)
 
 int[,] IntMatrixLinesToColumnsChanger(int[,] matrix)
 {
-    int temp = default,
-        linesCount = matrix.GetLength(0),
+    int linesCount = matrix.GetLength(0),
         columnsCount = matrix.GetLength(1);
     int[,] newmatrix = new int[columnsCount, linesCount];
 
