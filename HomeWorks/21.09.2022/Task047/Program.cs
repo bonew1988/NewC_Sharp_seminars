@@ -27,6 +27,7 @@ double [,] CreateMatrixRndDouble(int rows, int columns, int min, int max)
     }
     return matrix;
 }
+
 void PrintMatrix(double[,] matrix)
 {
 
@@ -41,6 +42,7 @@ void PrintMatrix(double[,] matrix)
         Console.WriteLine("|");
     }
 }
+
 double[,] array2D = CreateMatrixRndDouble(m, n, -10, 10);
 Console.WriteLine("*************************************************************************");
 PrintMatrix(array2D);

@@ -4,6 +4,7 @@
 // 5 9 2 3
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
 int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
 {
     int[,] matrix = new int[rows, columns];
@@ -17,6 +18,7 @@ int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
     }
     return matrix;
 }
+
 void PrintMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -32,28 +34,31 @@ void PrintMatrix(int[,] matrix)
         Console.WriteLine("|");
     }
 }
+
 void ArithmeticMeanColumnsArray(int[,] matrix)
 {
     double arithmeticMean = default;
+    Console.Write("|");
     for (int j = 0; j < matrix.GetLength(1); j++)
     {
-        int sum = default;
+        double sum = default;
         for (int i = 0; i < matrix.GetLength(0); i++)
         {
             sum += matrix[i, j];
         }
         arithmeticMean = sum / matrix.GetLength(0);
-        Console.Write("|");
-        Console.Write($"{arithmeticMean}|");
+        Console.Write($" {Math.Round(arithmeticMean, 1),2}|");
     }
 }
 
 Console.Clear();
 Random rand = new Random();
-int randRows = rand.Next(3, 4),
-    randColumns = rand.Next(3, 4);
+int randRows = rand.Next(7, 15),
+    randColumns = rand.Next(7, 15);
 Console.WriteLine("Поиск среднего арифметического элементов в каждом столбце.");
 Console.WriteLine("*******************************************************");
-int[,] array2D = CreateMatrixRndInt(randRows, randColumns, 1, 3);
+int[,] array2D = CreateMatrixRndInt(randRows, randColumns, 5, 9);
 PrintMatrix(array2D);
+Console.WriteLine("*******среднее арифметическое элементов****************");
 ArithmeticMeanColumnsArray(array2D);
+Console.WriteLine();
