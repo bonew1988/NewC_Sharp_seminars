@@ -35,7 +35,7 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-void ArithmeticMeanColumnsArray(int[,] matrix)
+void ArithmeticMeanColumnsArrayToConsole(int[,] matrix)
 {
     double arithmeticMean = default;
     Console.Write("|");
@@ -60,5 +60,5 @@ Console.WriteLine("*******************************************************");
 int[,] array2D = CreateMatrixRndInt(randRows, randColumns, 5, 9);
 PrintMatrix(array2D);
 Console.WriteLine("*******среднее арифметическое элементов****************");
-ArithmeticMeanColumnsArray(array2D);
+ArithmeticMeanColumnsArrayToConsole(array2D);
 Console.WriteLine();
