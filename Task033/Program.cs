@@ -45,8 +45,6 @@ int[,] IntMatrixLinesToColumnsChanger(int[,] matrix)
             newmatrix[j, i] = matrix[i, j];
         }
     }
-
-
     return newmatrix;
 }
 
