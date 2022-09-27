@@ -61,11 +61,15 @@ Console.Clear();
 Random rand = new Random();
 int randRows = rand.Next(5, 5),
     randColumns = rand.Next(5, 5);
+Console.ForegroundColor=ConsoleColor.Yellow;
 Console.WriteLine("Исходный массив");
-Console.WriteLine("*******************************************************");
+Console.WriteLine("*******************************");
 int[,] array2D = CreateMatrixRndInt(randRows, randColumns, 1, 99);
 PrintMatrix(array2D);
+Console.ForegroundColor=ConsoleColor.Red;
+Console.WriteLine();
 Console.WriteLine("Отсортированный массив");
-Console.WriteLine("*******************************************************");
+Console.WriteLine("*******************************");
 SortDescOrderArrayRows(array2D);
 PrintMatrix(array2D);
+Console.WriteLine();

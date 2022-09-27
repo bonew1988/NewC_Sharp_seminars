@@ -78,3 +78,4 @@ Console.ForegroundColor=ConsoleColor.Blue;
 Console.Write("Номер строки с наименьшей суммой элементов: ");
 Console.ForegroundColor=ConsoleColor.Red;
 Console.WriteLine($"{NumRowMinSumElements(array2D)}");
+Console.WriteLine();
