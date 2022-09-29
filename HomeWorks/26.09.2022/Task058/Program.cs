@@ -8,71 +8,85 @@
 //-------------------------------------------------------------------------------------------------------
 
 
-int rows = ReadInt("Введите количество строк: ");
-int columns = ReadInt("Введите количество столбцов: ");
-int[,] array = new int[rows, columns];
-int[,] secondArray = new int[rows, columns];
-int[,] resultArray = new int[rows, columns];
+int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
+{
+    int[,] matrix = new int[rows, columns];
+    Random rnd = new Random();
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            matrix[i, j] = rnd.Next(min, max + 1);
+        }
+    }
+    return matrix;
+}
 
-FillArrayRandom(array);
-PrintArray2D(array);
+void PrintMatrix(int[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        Console.Write("|");
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if (j < matrix.GetLength(1) - 1)
+                Console.Write($"{matrix[i, j],3}| ");
+            else
+                Console.Write($"{matrix[i, j],3}");
+        }
+        Console.WriteLine("|");
+    }
+}
 
+Console.Clear();
+Random rand = new Random();
+int randRows = rand.Next(3, 7),
+    randColumns = rand.Next(3, 7);
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.WriteLine("Первая матрица");
+Console.WriteLine("*******************************");
+int[,] array2D1 = CreateMatrixRndInt(randRows, randColumns, 1, 10);
+PrintMatrix(array2D1);
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine();
+Console.WriteLine("Вторая матрица");
+Console.WriteLine("*******************************");
+int[,] array2D2 = CreateMatrixRndInt(randRows, randColumns, 1, 10);
+PrintMatrix(array2D2);
 Console.WriteLine();
 
-FillArrayRandom(secondArray);
-PrintArray2D(secondArray);
+int[,] result = new int[randRows, randColumns];
 
-Console.WriteLine();
-
-if (array.GetLength(0) != secondArray.GetLength(1))
+if (array2D1.GetLength(0) != array2D2.GetLength(1))
 {
-    Console.WriteLine(" Нельзя перемножить ");
-    return;
-}
-for (int i = 0; i < array.GetLength(0); i++)
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("Операция невозможна");for (int i = 0; i < array2D1.GetLength(0); i++)
 {
-    for (int j = 0; j < secondArray.GetLength(1); j++)
+    for (int j = 0; j < array2D2.GetLength(1); j++)
     {
-        resultArray[i, j] = 0;
-        for (int k = 0; k < array.GetLength(1); k++)
+        result[i, j] = 0;
+        for (int k = 0; k < array2D1.GetLength(1); k++)
         {
-            resultArray[i, j] += array[i, k] * secondArray[k, j];
+            result[i, j] += array2D1[i, k] * array2D2[k, j];
         }
     }
 }
-
-PrintArray2D(resultArray);
-
-
-
-// Функция ввода
-int ReadInt(string message)
-{
-    Console.Write(message);
-    return Convert.ToInt32(Console.ReadLine());
 }
-
-// Функция заполнения массива рандомными числами от 1 до 9
-void FillArrayRandom(int[,] array)
+else
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < array2D1.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < array2D2.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(1, 10);
+            result[i, j] = 0;
+            for (int k = 0; k < array2D1.GetLength(1); k++)
+            {
+                result[i, j] += array2D1[i, k] * array2D2[k, j];
+            }
         }
     }
-}
-
-// Функция вывода двумерного массива в терминал 
-void PrintArray2D(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write($"{array[i, j]} ");
-        }
-        Console.WriteLine();
-    }
+    Console.ForegroundColor = ConsoleColor.Blue;
+    Console.WriteLine("Результат произведения матриц");
+    Console.WriteLine("*******************************");
+    PrintMatrix(result);
 }
