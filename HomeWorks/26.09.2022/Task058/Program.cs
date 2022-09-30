@@ -38,10 +38,27 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
+int[,] MatrixMultiplication(int[,] arr1, int[,] arr2)
+{
+    int[,] result = new int[arr1.GetLength(0), arr2.GetLength(1)];
+    for (int i = 0; i < arr1.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr2.GetLength(1); j++)
+        {
+            result[i, j] = 0;
+            for (int k = 0; k < arr1.GetLength(1); k++)
+            {
+                result[i, j] += arr1[i, k] * arr2[k, j];
+            }
+        }
+    }
+    return result;
+}
+
 Console.Clear();
 Random rand = new Random();
-int randRows = rand.Next(3, 7),
-    randColumns = rand.Next(3, 7);
+int randRows = rand.Next(3, 5),
+    randColumns = rand.Next(3, 5);
 Console.ForegroundColor = ConsoleColor.Yellow;
 Console.WriteLine("Первая матрица");
 Console.WriteLine("*******************************");
@@ -55,38 +72,17 @@ int[,] array2D2 = CreateMatrixRndInt(randRows, randColumns, 1, 10);
 PrintMatrix(array2D2);
 Console.WriteLine();
 
-int[,] result = new int[randRows, randColumns];
 
 if (array2D1.GetLength(0) != array2D2.GetLength(1))
 {
     Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine("Операция невозможна");for (int i = 0; i < array2D1.GetLength(0); i++)
-{
-    for (int j = 0; j < array2D2.GetLength(1); j++)
-    {
-        result[i, j] = 0;
-        for (int k = 0; k < array2D1.GetLength(1); k++)
-        {
-            result[i, j] += array2D1[i, k] * array2D2[k, j];
-        }
-    }
-}
+    Console.WriteLine("Операция невозможна");
 }
 else
 {
-    for (int i = 0; i < array2D1.GetLength(0); i++)
-    {
-        for (int j = 0; j < array2D2.GetLength(1); j++)
-        {
-            result[i, j] = 0;
-            for (int k = 0; k < array2D1.GetLength(1); k++)
-            {
-                result[i, j] += array2D1[i, k] * array2D2[k, j];
-            }
-        }
-    }
+    int[,] multyresult = MatrixMultiplication(array2D1, array2D2);
     Console.ForegroundColor = ConsoleColor.Blue;
     Console.WriteLine("Результат произведения матриц");
     Console.WriteLine("*******************************");
-    PrintMatrix(result);
+    PrintMatrix(multyresult);
 }
